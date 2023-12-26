@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {DataGrid} from "@mui/x-data-grid";
-// import {Link} from "react-router-dom";
-import {Button, IconButton} from "@mui/material";
+import {Link} from "react-router-dom";
+import {Button} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -26,16 +26,6 @@ function ListStudent() {
                     phone: item.phone,
                     email: item.email,
                     classroom: item.classroom.className,
-                    // action: (
-                    //     <>
-                    //         <Button>Primary</Button>
-                    //         <IconButton aria-label="delete">
-                    //             <DeleteIcon />
-                    //         </IconButton>
-                    //         {/*<button variant="contained" color="primary"><Link to='edit/:id'>Edit</Link></button>*/}
-                    //         {/*<button variant="contained" color="secondary"><Link to='delete/:id'>Delete</Link></button>*/}
-                    //     </>
-                    // ),
                 }
             ))}
             columns={[
@@ -60,13 +50,13 @@ function ListStudent() {
                     renderCell: (params) => {
                         return (
                             <>
-                                <Button aria-label="edit"><EditIcon color="action" /></Button>
+                                <Button aria-label="edit"><Link to={`/students/edit/${params.row.id}`}><EditIcon color="action" /></Link></Button>
                                 <Button aria-label="delete"><DeleteIcon color="action" /></Button>
-                                <Button aria-label="view"><VisibilityIcon color="action" /></Button>
+                                <Button aria-label="view"><Link to={`/students/view/${params.row.id}`}><VisibilityIcon color="action" /></Link></Button>
                             </>
 
-                            // <Link to={`/delete/${params.row.id}`}>Delete</Link>
-                            // <Link to={`/edit/${params.row.id}`}>Edit</Link>
+                            // <Link to={`/students/edit/${params.row.id}`}>Delete</Link>
+                            // <Link to="students/edit/:id"><EditIcon color="action" /></Link>
                         )
 
                     }

@@ -3,6 +3,8 @@ import {Navigate, Route, Routes} from "react-router-dom";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import CreateStudent from "./pages/student/CreateStudent";
+import EditStudent from "./pages/student/EditStudent";
+import ViewStudent from "./pages/student/ViewStudent";
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
               {/*list student se dc thay the vao vung Outlet*/}
               <Route path={'list'} element={<ListStudent />} />
               <Route path={'add'} element={<CreateStudent />} />
+              {/*:id (goi la params) la cu phap de lay ve id cua student -> su dung useParams() de lay du lieu*/}
+              <Route path={'edit/:id'} element={<EditStudent />} />
+              <Route path={'view/:id'} element={<ViewStudent />} />
           </Route>
 
           {/*Duong dan den trang Admin*/}
