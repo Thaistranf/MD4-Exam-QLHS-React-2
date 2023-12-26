@@ -54,11 +54,7 @@ function ListStudent() {
                                 <Button aria-label="delete"><DeleteIcon color="action" /></Button>
                                 <Button aria-label="view"><Link to={`/students/view/${params.row.id}`}><VisibilityIcon color="action" /></Link></Button>
                             </>
-
-                            // <Link to={`/students/edit/${params.row.id}`}>Delete</Link>
-                            // <Link to="students/edit/:id"><EditIcon color="action" /></Link>
                         )
-
                     }
                 },
             ]}
